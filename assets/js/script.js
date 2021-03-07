@@ -14,17 +14,17 @@ function workDay() {
       let row;
       let timeCol;
   
-      //
+      //textbox to do (rows)
       for (i = 0; i < workHours.length; i++) {
         let row = $("<div>").addClass("row");
         let timeCol = $("<text-area>").text(workHours[i]).addClass("hour");
-        let inputCol = $("<input>").attr("placeholder", "Enter note here").addClass("toDo-input time-block");
+        let inputCol = $("<input>").attr("placeholder", "Type note here").addClass("toDo-input time-block");
         saveBtn = $("<button>").addClass("btn btn-primary saveBtn").text("save");
         $(row).append(timeCol).append(inputCol).append(saveBtn);
         $("#calendar").append(row);
       }
   
-      //for loop to add id's to input fields
+      //inputs
       function addIdToInput() {
         let inputId = document.getElementsByClassName("toDo-input");
         let length = inputId.length;
@@ -34,7 +34,7 @@ function workDay() {
       };
       addIdToInput();
   
-      //for loop to add id's to save buttons
+      //save buttons
       function addIdToSaveBtn() {
         let saveBtnId = document.getElementsByClassName("saveBtn");
         let length = saveBtnId.length;
@@ -44,6 +44,7 @@ function workDay() {
       }
       addIdToSaveBtn();
   
+      //differentiating between save buttons and inputs
       let saveBtnId1 = $("#saveBtn-Id-1");
       let saveBtnId2 = $("#saveBtn-Id-2");
       let saveBtnId3 = $("#saveBtn-Id-3");
@@ -67,7 +68,7 @@ function workDay() {
   
       let storedInput;
   
-      //click events for each save button 
+      //save button on click
   
       $(saveBtnId1).on("click", function (event) {
         event.preventDefault();
@@ -141,7 +142,7 @@ function workDay() {
       let savedInput9 = (localStorage.getItem("toDo9"));
       toDoInput9.val(savedInput9);
   
-      // start if else statements to show past, present, future events
+      // differentiate past, present, and future events
   
       let now = new Date().getHours();
       if (now > 8) {
